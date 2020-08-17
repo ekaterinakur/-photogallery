@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 
 import { TextField, InputAdornment } from '@material-ui/core';
@@ -8,14 +9,15 @@ import useStyles from '../../styles/';
 export default function FilesSearch({ getPhotoList }) {
 
   const classes = useStyles();
+  const { category } = useParams();
   const [searchString, setSearchString] = useState('');
-  const [debouncedSearch] = useDebounce(searchString, 300);
+  const [debouncedSearch] = useDebounce(searchString, 500);
 
   useEffect(() => {
-    if (searchString && searchString > 4) {
-      getPhotoList(debouncedSearch);
+    if (searchString && searchString.length > 4) {
+      getPhotoList(category, debouncedSearch);
     }
-  }, [getPhotoList, debouncedSearch]);
+  }, [debouncedSearch, category, getPhotoList]);
 
   return (
     <TextField

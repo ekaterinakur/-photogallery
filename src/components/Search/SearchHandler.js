@@ -8,7 +8,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPhotoList: (searchString) => dispatch(getPhotoList(searchString))
+    getPhotoList: (category, searchString) => dispatch(getPhotoList(category, searchString))
   }
 }
 

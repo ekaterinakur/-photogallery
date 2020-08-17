@@ -27,18 +27,21 @@ export function getPhotoList(category = null, query = null, page = 1) {
     }
 
     let endpoint;
+    let categoryId;
+    if (category) {
+      categoryId = categories.find(cat => cat.query === category);
+    }
 
-    if (category && category !== 'all') {
-      const categoryId = categories.find(cat => cat.query === category).id;
-      endpoint = '/collections/' + categoryId + '/photos';
-    } else if (query) {
+    if (query) {
       endpoint = '/search/photos';
+    } else if (category && category !== 'all') {
+      endpoint = '/collections/' + categoryId.id + '/photos';
     } else {
       endpoint = '/photos';
     }
 
     let actionType = (query || page === 1) ? SET_NEW_PHOTO_LIST : SET_PHOTO_LIST;
-debugger
+
     let params = {
       per_page: 15,
       page
@@ -47,9 +50,8 @@ debugger
     if (query) {
       params.query = query;
 
-      if (categories) {
-        const categoryId = categories.find(cat => cat.query === category).id;
-        params.collections = categoryId;
+      if (category && category !== 'all') {
+        params.collections = categoryId.id;
       }
     }
 
@@ -57,7 +59,7 @@ debugger
     .then(res => {
       dispatch({
         type: actionType,
-        payload: res.data
+        payload: res.data.results ? res.data.results : res.data
       })
     })
     .catch(err => {

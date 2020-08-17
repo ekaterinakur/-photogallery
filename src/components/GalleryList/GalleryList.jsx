@@ -14,12 +14,13 @@ export default function GalleryList({ photos, currentPage, category, getPhotoLis
   
   return (
     <>
-      <GridList cellHeight={160} cols={2} className={classes.list} >
+      <GridList cellHeight={160} cols={2} className={classes.photoList} >
         {photos.map((photo) => (
-          <GridListTile key={photo.id}>
-            <Link to={'/photo/' + photo.id} className={classes.listLink} >
-              <img src={photo.urls.regular} alt={photo.description} />
-            </Link>
+          <GridListTile key={photo.id} style={{height: '250px'}}>
+            <Link 
+                to={'/photo/' + photo.id} className={classes.listLink}
+                style={{backgroundImage: 'url(' + photo.urls.full + ')'}}
+            />
           </GridListTile>
         ))}
       </GridList>

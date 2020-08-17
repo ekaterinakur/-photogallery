@@ -14,7 +14,7 @@ import useStyles from './../styles';
 
 import categories from '../categories';
 
-export default function Header({ getVideoList }) {
+export default function Header() {
 
   const classes = useStyles();
 
@@ -34,10 +34,16 @@ export default function Header({ getVideoList }) {
 
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar 
+        position="fixed" 
+        className={classes.appbar}
+      >
         <Toolbar className={classes.toolbar}>
           <Link to='/'>
-            <img src='./public/media/logo.png' alt='logo' />
+            <img 
+              src='/media/logo.png' alt='logo'
+              className={classes.headerLogo}
+            />
           </Link>
          
           <SearchHandler />

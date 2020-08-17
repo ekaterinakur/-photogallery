@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Banner from '../Banner';
+import Banner from '../Banner/Banner';
 import GalleryList from '../GalleryList/GalleryList';
 
 import { 

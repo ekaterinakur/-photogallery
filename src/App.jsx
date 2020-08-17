@@ -32,23 +32,31 @@ const App = () => {
 
   return (
       <Router>
-        <MainLayout>
+      {/* <MainLayout> */}
           <Switch>
             <Redirect exact from="/" to="/photos/all" />
-            <Route path="/photos/:category">
-              <GalleryPageHandler />
+            <Route path="/photos/:category" >
+              <MainLayout>
+                <GalleryPageHandler />
+              </MainLayout>
             </Route>
             <Route path="/photo/:photoId" >
-              <PhotoCardHandler />
+              <MainLayout>
+                <PhotoCardHandler />
+              </MainLayout>
             </Route>
             <Route path="/user/:username" >
-              <UserCardHandler />
+              <MainLayout>
+                <UserCardHandler />
+              </MainLayout>
             </Route>
             <Route path="*">
-              <NoMatch />
+              <MainLayout>
+                <NoMatch />
+              </MainLayout>
             </Route>
           </Switch>
-        </MainLayout>
+        {/* </MainLayout> */}
       </Router>
   )
 };

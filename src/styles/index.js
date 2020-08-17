@@ -7,14 +7,29 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: 65
   },
+  appbar: {
+    backgroundColor: '#9226FF !important'
+  },
   toolbar: {
     justifyContent: 'space-between'
+  },
+  headerLogo: {
+    width: 50,
+    marginBottom: '-10px'
   },
   menuLink: {
     padding: '0 10px',
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: 'black'
+    color: '#000'
+  },
+  bannerImg: {
+    height: 0,
+    paddingTop: '56.25%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    marginBottom: 30
   },
   photoCard: {
     boxShadow: 'none'
@@ -32,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
-    color: 'black'
+    color: '#000'
   },
   photoCardAvatar: {
     marginRight: 10
@@ -46,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left'
   },
   userCardImage: {
-    width: 151,
+    flex: '0 0 200px'
   },
   textField: {
     marginBottom: 40
@@ -63,8 +78,16 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  photoList: {
+    marginBottom: '30px !important'
+  },
   listLink: {
-    display: 'inline-block'
+    display: 'inline-block',
+    width: '100%',
+    paddingTop: '56.25%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   }
 }));
 
