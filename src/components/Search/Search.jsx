@@ -14,7 +14,7 @@ export default function FilesSearch({ getPhotoList }) {
   const [debouncedSearch] = useDebounce(searchString, 500);
 
   useEffect(() => {
-    if (searchString && searchString.length > 4) {
+    if (debouncedSearch && debouncedSearch.length > 4) {
       getPhotoList(category, debouncedSearch);
     }
   }, [debouncedSearch, category, getPhotoList]);

@@ -7,8 +7,6 @@ import {
   useLocation 
 } from 'react-router-dom';
 
-import useStyles from './styles';
-
 import MainLayout from './layouts/MainLayout';
 import GalleryPageHandler from './components/GalleryPage/GalleryPageHandler';
 import UserCardHandler from './components/UserCard/UserCardHandler';
@@ -27,8 +25,6 @@ function NoMatch() {
 }
 
 const App = () => {
-
-  const classes = useStyles();
 
   return (
       <Router>

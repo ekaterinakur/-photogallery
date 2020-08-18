@@ -14,7 +14,7 @@ export default function GalleryPage({ photos, currentPage, getPhotoList, isLoadi
 
   useEffect(() => {
     getPhotoList(category);
-  }, [category]);
+  }, [category, getPhotoList]);
 
   return <>
       {
